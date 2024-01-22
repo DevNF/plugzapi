@@ -1,0 +1,20 @@
+{
+    "name": "fuganholisistemas/plugzapi",
+    "description": "Biblioteca para comunicaçao com a API de WhatsApp da Tecnospeed",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "FuganholiSistemas\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Henrique Ernandes",
+            "email": "rebeloehenrique@hotmail.com"
+        }
+    ]
+}
