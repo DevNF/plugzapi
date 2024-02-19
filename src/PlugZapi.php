@@ -10,11 +10,13 @@ class PlugZapi
     private bool $isProduction = false;
     private bool $debug = false;
     private HttpClient $httpClient;
-
+    private string $instance_id;
+    private string $token;
+    private string $clientToken;
     public function __construct(
-        private string $instance_id,
-        private string $token,
-        private string $clientToken,
+        string $instance_id,
+        string $token,
+        string $clientToken,
         $isProduction = false,
         $debug = false)
     {

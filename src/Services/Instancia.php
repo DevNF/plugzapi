@@ -5,8 +5,11 @@ use FuganholiSistemas\PlugZapi;
 class Instancia
 {
 
-    public function __construct(private PlugZapi $client)
+    private PlugZapi $client;
+
+    public function __construct(PlugZapi $client)
     {
+        $this->client = $client;
     }
 
     public function consultarStatusInstancia()

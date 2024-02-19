@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace FuganholiSistemas;
 use GuzzleHttp\Client;
@@ -7,10 +7,12 @@ use FuganholiSistemas\Config\SandboxData;
 
 class HttpClient
 {
-    private Client $clientHttp;
+    protected Client $clientHttp;
+    protected PlugZapi $client;
 
-    public function __construct(private PlugZapi $client)
+    public function __construct(PlugZapi $client)
     {
+        $this->client = $client;
         $baseUri = ProductionData::BASE_URI . $client->getInstanceId() . '/token/' . $client->getToken() . '/';
 
         $this->clientHttp = new Client([
