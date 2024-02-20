@@ -5,7 +5,7 @@ use FuganholiSistemas\PlugZapi;
 class Instancia
 {
 
-    private PlugZapi $client;
+    private $client;
 
     public function __construct(PlugZapi $client)
     {

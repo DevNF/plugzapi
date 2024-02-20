@@ -1,24 +1,23 @@
 <?php
 
 namespace FuganholiSistemas;
-use FuganholiSistemas\Services\EmpresaCliente;
 use FuganholiSistemas\Services\Instancia;
 use FuganholiSistemas\Services\Mensagens;
 
 class PlugZapi
 {
-    private bool $isProduction = false;
-    private bool $debug = false;
-    private HttpClient $httpClient;
-    private string $instance_id;
-    private string $token;
-    private string $clientToken;
+    private $isProduction = false;
+    private $debug = false;
+    private $httpClient;
+    private $instance_id;
+    private $token;
+    private $clientToken;
     public function __construct(
         string $instance_id,
         string $token,
         string $clientToken,
-        $isProduction = false,
-        $debug = false)
+        bool $isProduction = false,
+        bool $debug = false)
     {
         $this->instance_id = $instance_id;
         $this->token = $token;

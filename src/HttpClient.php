@@ -7,8 +7,8 @@ use FuganholiSistemas\Config\SandboxData;
 
 class HttpClient
 {
-    protected Client $clientHttp;
-    protected PlugZapi $client;
+    protected $clientHttp;
+    protected $client;
 
     public function __construct(PlugZapi $client)
     {
