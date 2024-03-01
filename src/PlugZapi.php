@@ -1,6 +1,7 @@
 <?php
 
 namespace FuganholiSistemas;
+use FuganholiSistemas\Services\Contatos;
 use FuganholiSistemas\Services\Instancia;
 use FuganholiSistemas\Services\Mensagens;
 
@@ -34,6 +35,10 @@ class PlugZapi
     public function Mensagens(): Mensagens
     {
         return new Mensagens($this);
+    }
+    public function Contatos(): Contatos
+    {
+        return new Contatos($this);
     }
 
     public function getHttpClient(): HttpClient
