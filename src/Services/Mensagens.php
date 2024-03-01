@@ -12,6 +12,13 @@ class Mensagens
         $this->client = $client;
     }
 
+    public function validarNumeroCadastradoWhatsApp(string $number) : void
+    {
+        if(!$this->client->Contatos()->consultarNumeroCadastradoWhatsApp($number)){
+            throw new \Exception('Número não cadastrado no WhatsApp');
+        }
+    }
+
     public function enviarMensagemTexto(
         string $phone,
         string $message,
@@ -20,6 +27,8 @@ class Mensagens
         ?int $delayTyping = null
         )
     {
+        $this->validarNumeroCadastradoWhatsApp($phone);
+
         try {
             return $this->client->getHttpClient()->exec('POST', 'send-text', [
                 'json' => [
@@ -41,6 +50,8 @@ class Mensagens
         bool $owner
         )
     {
+        $this->validarNumeroCadastradoWhatsApp($phone);
+
         try {
             return $this->client->getHttpClient()->exec('DELETE', 'messages', [
                 'query' => [
@@ -66,6 +77,8 @@ class Mensagens
         ?string $linkType = null
         )
     {
+        $this->validarNumeroCadastradoWhatsApp($phone);
+
         try {
             return $this->client->getHttpClient()->exec('POST', 'send-link', [
                 'json' => [
@@ -92,6 +105,8 @@ class Mensagens
         ?int $delayMessage = null
         )
     {
+        $this->validarNumeroCadastradoWhatsApp($phone);
+
         try {
             return $this->client->getHttpClient()->exec('POST', 'send-sticker', [
                 'json' => [
@@ -114,6 +129,8 @@ class Mensagens
         ?int $delayMessage = null
         )
     {
+        $this->validarNumeroCadastradoWhatsApp($phone);
+
         try {
             return $this->client->getHttpClient()->exec('POST', 'send-image', [
                 'json' => [
